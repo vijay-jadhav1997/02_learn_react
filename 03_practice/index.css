@@ -1,0 +1,57 @@
+*{
+  box-sizing: border-box;
+  border: none;
+  color: #fff;
+}
+body {
+  background-color: #1f013b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body div {
+  padding: 20px;
+  border: 1px dashed #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.heading {
+  text-align: center;
+  width: max-content;
+  padding: 10px 20px;
+  margin: 50px auto 5px;
+  border-radius: 10px;
+  border: 1px solid #dfff69;
+  background-color: #a1eefce6;
+  color: #fff;
+  text-shadow: -2px -2px 3px #ff69c3;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #60fa75;
+  border-radius: 20px;
+}
+.container label {
+  text-align: center;
+  color: #fff;
+}
+.container .radheImg{
+  margin-top: 10px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.service_page img {
+  height: 300px;
+  border-radius: 10px;
+}
