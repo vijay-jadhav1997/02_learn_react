@@ -1,6 +1,6 @@
 # 💻📈 Start building project while learning React.js basic concepts...
 
-* Basics (project set up with npm(a package manager), parcel(a zero conf. bundler), Babel(a JS compiler/ transpiler), and making project/app/code production ready....):
+## Basics (project set up with npm(a package manager), parcel(a zero conf. bundler), Babel(a JS compiler/ transpiler), and making project/app/code production ready....):
 
 - install node.js & npm (in pc/laptop):
 - npm init (): creates package.json file.

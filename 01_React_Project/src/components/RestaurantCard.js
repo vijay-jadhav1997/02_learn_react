@@ -5,33 +5,41 @@
 
 const RestaurantCard = (props) => {
   const {restaurantData} = props;
+  console.log(restaurantData);
   const {
-    cloudinaryImageId, 
-    name, avgRating, 
-    cuisines, 
-    areaName, 
-    costForTwo, 
-    aggregatedDiscountInfoV3, 
-    sla
+    image, 
+    name, 
+    ratingNew, 
+    cuisine, 
+    cfo
   } = restaurantData?.info;
+
+  const {bulkOffers, order, bottomContainers} = restaurantData;
+  
   return (
     <div className="restaurantCard">
       <div className="bannerBox">
-        <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-        <span>{
-          (aggregatedDiscountInfoV3?.header !== undefined ? aggregatedDiscountInfoV3?.header : "")
-          + " " + 
-          (aggregatedDiscountInfoV3?.subHeader !== undefined ? aggregatedDiscountInfoV3?.subHeader : "")
-          }</span>
+        <img src={image?.url} />
+        <p>{bulkOffers?.text}</p>
       </div>
 
       <div className="cardDetails">
-        <h3>{name}</h3>
-        <h5>{avgRating} Star</h5>
-        <h5>{cuisines.join(', ')}</h5>
-        <h5>Location: {areaName}</h5>
-        <h4>Price: {costForTwo}</h4>
-        <h4>deliver in  {sla.slaString}</h4>
+        <div className="title_box">
+          <h4 className="restName">{name}</h4>
+          <p className="rating" style={backgroundColor=ratingNew?.ratings?.DELIVERY?.bgColorV2}>{ratingNew?.ratings?.DELIVERY?.rating}</p>
+        </div>
+        <div className="cardDatails_box2">
+          <p className="cuisines">{cuisine.map((obj) => obj.name + ", ")}</p>
+          <p className="price">{cfo}</p>
+        </div>
+        <div className="cardDatails_box3">
+          <div ></div>
+          <p className="delivery_time">{order?.deliveryTime}</p>
+        </div>
+        <div className="safetyInfo_box">
+          <img className="safatyInfo_img" src={bottomContainers?.image?.url}/>
+          <p className="safatyInfo_text">{bottomContainers?.text}</p>
+        </div>
       </div>
     </div>
 
