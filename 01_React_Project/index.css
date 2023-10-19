@@ -48,8 +48,6 @@ body {
 .navBox {
   height: 95%;
   width: max-content;
-  /* flex: 1; */
-  /* margin: 0 5% 0 10%; */
 }
 .navBox ul {
   height: 100%;
@@ -81,16 +79,11 @@ body {
   bottom: -18px;
   right: 50%;
   transform: translate(50%);
-  /* display: none; */
   color: #fff;
   text-shadow: -2px -2px 3px #ffff00;
   width: max-content;
 }
-/* .profileBox span:hover {
-  display: block;
-} */
 
-/** styling body */
 .body {
   margin-top: 105px;
   
@@ -101,7 +94,6 @@ body {
   margin: 10px auto;
   overflow: hidden;
 }
-
 .searchBox input,
 .searchBox button {
   height: 55px;
@@ -124,6 +116,8 @@ body {
   opacity: 0.6;
 }
 
+
+
 .cardContainer {
   display: flex;
   justify-content: center;
@@ -134,35 +128,32 @@ body {
   padding: 10px;
 }
 .restaurantCard {
-  width: 300px;
-  background-color: #90e4fc6f;
+  width: 320px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   color: #fff;
   cursor: pointer;
 
 }
 .restaurantCard:hover {
-  border: 1px solid #ffffff;
-  width: 290px;
-
+  box-shadow: 0 0 5px rgb(224, 223, 223);
+  background-color: #90e5fc75;
 }
 .restaurantCard .bannerBox {
   position: relative;
 }
 .restaurantCard .bannerBox img {
-  border-radius: 5px;
+  border-radius: 10px;
   width: 100%;
   height: 250px;
 }
-.restaurantCard .bannerBox span {
+.restaurantCard .bannerBox p {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  /* right: 5px; */
   padding: 5px 10px;
   font-size: 20px;
-  background-color: #232254bf;
+  /* background-color: #232254bf; */
 
 }
 .restaurantCard .cardDetails {

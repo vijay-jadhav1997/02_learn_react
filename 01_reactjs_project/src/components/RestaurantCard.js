@@ -5,6 +5,8 @@ import React from "react"
 
 const RestaurantCard = (props) => {
   const {restaurantData} = props;
+  console.log(restaurantData?.info);
+  console.log(restaurantData?.info.name);
   const {
     image, 
     name, 
@@ -29,7 +31,7 @@ const RestaurantCard = (props) => {
         </div>
         <div className="cardDatails_box2">
           <p className="cuisines">{cuisine.map((obj) => obj.name + ", ")}</p>
-          <p className="price">{costText.text}</p>
+          <p className="price">{costText?.text}</p>
         </div>
         <div className="cardDatails_box3">
           <div ></div>

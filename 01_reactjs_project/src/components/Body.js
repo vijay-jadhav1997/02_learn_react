@@ -14,6 +14,7 @@ const Body = () => {
         <button className="searchBtn" >Search</button>
       </div>
       <div className="cardContainer">
+       {/* <RestaurantCard restaurantData={resoList[0]}/> */}
         {resoList.map((data) => {
           return <RestaurantCard key={data.info.resId} restaurantData ={data} />
         })}
