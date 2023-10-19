@@ -40,5 +40,6 @@
 # Hooks in React :
 - Normal JS utility functions
 - Examples: 
-  useState(): Superpowerful State Variable in react
+  useState(): Superpowerful State Variable in react.
+    - whenever State variable updates react re-render the components
   useEffect(): 

@@ -123,17 +123,20 @@ body {
   padding: 10px 10px;
   border-radius: 10px;
 }
-.filter_box button{
+.filter_box .filter_btn{
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s;
 }
-.filter_box button:hover {
+.filter_box .filter_btn:hover {
   opacity: 0.9;
 }
-.filter_box button:active {
-  opacity: 0.75;
+
+.filter_box .active {
+  background-color: #232254;
+  color: #fff;
+  box-shadow: 0 0 10px #ebebeb;
 }
 
 .heading_box {

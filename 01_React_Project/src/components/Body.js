@@ -19,12 +19,25 @@ const Body = () => {
       </div>
       <div className="filter_box">
         <button className="filter_btn"
-          onClick={() => {
-            setResoLists(resoLists.filter(
-              (restaurant) => {
-               return (restaurant.info?.ratingNew?.ratings?.DELIVERY?.rating > 4)
-              }
-            ))
+          onClick={(event) => {
+            let filteredList;
+            
+            if(event.target.classList.toggle('active') === true) {
+              // event.target.classList.toggle('active');
+              filteredList = resoLists.filter(
+                (restaurant) => {
+                return (restaurant.info?.ratingNew?.ratings?.DELIVERY?.rating > 4)
+                }
+              )
+              console.log("if => jay hari!")
+            } 
+            else {
+              filteredList = resoLists;
+              // event.target.classList.toggle('active');
+              setResoLists(filteredList);
+              console.log("else => jay hari!");
+            }
+            console.log(filteredList.length)
           }}
         >
         Top Rated Reastaurants</button>
