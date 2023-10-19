@@ -1,0 +1,174 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  
+
+}
+#root{
+  width: 100%;
+  padding: 20px 0;
+  background-color: #232254;
+}
+
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 10px;
+  background-color: #e876fc;
+  border-radius: 15px;
+  z-index: 100;
+}
+.header:hover {
+  background-color: #eb8cfc;
+}
+.header .logoBox{
+  height: 75%;
+  width: 20%;
+  max-width: 110px;
+  margin-left: 3%;
+}
+
+.logoBox .logo {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.navBox {
+  height: 95%;
+  width: max-content;
+  /* flex: 1; */
+  /* margin: 0 5% 0 10%; */
+}
+.navBox ul {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  column-gap: 10px;
+  color: #ffffff;
+}
+.navBox ul li {
+  padding: 10px;
+
+}
+
+.profileBox{
+  height: 50px;
+  width: 50px;
+  margin-right: 5%;
+  position: relative;
+}
+.profileBox .profileImg{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.profileBox span {
+  position: absolute;
+  bottom: -18px;
+  right: 50%;
+  transform: translate(50%);
+  /* display: none; */
+  color: #fff;
+  text-shadow: -2px -2px 3px #ffff00;
+  width: max-content;
+}
+/* .profileBox span:hover {
+  display: block;
+} */
+
+/** styling body */
+.body {
+  margin-top: 105px;
+  
+}
+.searchBox {
+  border-radius: 27px;
+  width: 60%;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.searchBox input,
+.searchBox button {
+  height: 55px;
+  font-size: 20px;
+  outline: none;
+}
+.searchBox input {
+  width: 80%;
+  text-indent: 10%;
+}
+.searchBox button{
+  width: 20%;
+  border-left: 1px solid #c1c0c0;
+  cursor: pointer;
+}
+.searchBox button:hover {
+  opacity: 0.9;
+}
+.searchBox button:active {
+  opacity: 0.6;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.restaurantCard {
+  width: 300px;
+  background-color: #90e4fc6f;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+
+}
+.restaurantCard:hover {
+  border: 1px solid #ffffff;
+  width: 290px;
+
+}
+.restaurantCard .bannerBox {
+  position: relative;
+}
+.restaurantCard .bannerBox img {
+  border-radius: 5px;
+  width: 100%;
+  height: 250px;
+}
+.restaurantCard .bannerBox span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  /* right: 5px; */
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color: #232254bf;
+
+}
+.restaurantCard .cardDetails {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 100%;
+}

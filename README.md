@@ -19,3 +19,8 @@ What Parcel do for us:
 - HTTPs
 - Tree Shaking - i.e remove unused code
 - Different dev and prod bundles
+
+
+
+* while looping in React:
+* not using keys (not acceptable) <<<<< index as key (if unique id is not available) <<<<<<< unique id as key (best practice)
