@@ -1,0 +1,148 @@
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.application {
+  width: 100%;
+  background-color: #33335c;
+}
+
+/* *styling header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  background-color: rgb(250, 117, 22);
+  position: fixed;
+  left: 3%;
+  right: 3%;
+  top: 5px;
+  padding: 0 15px;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+/* styling left_section of header */
+.left_section {
+  position: relative;
+}
+.left_section img{
+  height: 75px;
+  border-radius: 50%;
+}
+.left_section p {
+  position: absolute;
+  bottom: -15px;
+  width: max-content;
+  color: #fff;
+}
+
+/* styling middle_section of header */
+.middle_section {
+  height: 55%;
+  width: 40%;
+  /* background-color: blueviolet; */
+  border-radius: 25px;
+  overflow: hidden;
+}
+.middle_section input{
+  height: 100%;
+  width: 80%;
+  font-size: 20px;
+  text-indent: 5%;
+}
+.middle_section button{
+  height: 100%;
+  width: 20%;
+  font-size: 19px;
+  border-left: 1px solid #c1c0c0;
+  background-color: #fff;
+}
+
+/* styling right_section of header */
+.right_section {
+  /* height: 50%; */
+  font-size: 10px;
+}
+.right_section button{
+  height: 60px;
+  width: 60px;
+  font-size: 25px;
+  border-radius: 50%;
+  position: relative;
+}
+.right_section span{
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translate(-50%);
+  /* display: none; */
+  font-size: 14px;
+  color: #bababa;
+  
+}
+
+
+.body {
+  padding-top: 115px;
+}
+
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.restaurantCard {
+  width: 300px;
+  background-color: #90e4fc6f;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+
+}
+.restaurantCard:hover {
+  border: 1px solid #ffffff;
+  width: 290px;
+
+}
+.restaurantCard .bannerBox {
+  position: relative;
+}
+.restaurantCard .bannerBox img {
+  border-radius: 5px;
+  width: 100%;
+  height: 250px;
+}
+.restaurantCard .bannerBox span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  /* right: 5px; */
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color: #232254bf;
+
+}
+.restaurantCard .cardDetails {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 100%;
+}
+/* .restaurantCard .cardDetails h5 {
+  width: 100%;
+} */
