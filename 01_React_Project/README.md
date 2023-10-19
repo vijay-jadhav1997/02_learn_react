@@ -31,3 +31,14 @@
 
 
 
+
+
+# React elements:
+# JSX:
+# React Components:
+# props in React :
+# Hooks in React :
+- Normal JS utility functions
+- Examples: 
+  useState(): Superpowerful State Variable in react
+  useEffect(): 

@@ -21636,7 +21636,7 @@ const resoList12 = [
 ]
 
 
-const resoList = [
+let resoList = [
   ...resoList1,
   ...resoList2,
   ...resoList3,
