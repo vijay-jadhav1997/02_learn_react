@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import resoList from  "../utils/mockData";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
@@ -10,7 +10,20 @@ import { useState } from "react";
 
 
 const Body = () => {
-  const [resoLists, setResoLists] = useState([...resoList])
+  const [resoLists, setResoLists] = useState([...resoList]);
+
+  useEffect(() => {
+    fetchData();
+  },[])
+
+  const fetchData = async () => {
+    const data = await fetch (
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+    );
+    const jsons = await data.json();
+    console.log(jsons);
+  }
+  
   return (
     <div className="body">
       <div className="searchBox">
@@ -30,14 +43,12 @@ const Body = () => {
                 }
               )
               console.log("if => jay hari!")
+              setResoLists(filteredList);
             } 
             else {
-              filteredList = resoLists;
-              // event.target.classList.toggle('active');
-              setResoLists(filteredList);
+              setResoLists(resoLists);
               console.log("else => jay hari!");
             }
-            console.log(filteredList.length)
           }}
         >
         Top Rated Reastaurants</button>
