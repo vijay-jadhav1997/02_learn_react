@@ -29,7 +29,7 @@ body {
   z-index: 100;
 }
 .header:hover {
-  background-color: #eb8cfc;
+  box-shadow: 0 0 10px #e6e6e6;
 }
 .header .logoBox{
   height: 75%;
@@ -38,19 +38,19 @@ body {
   margin-left: 3%;
 }
 
-.logoBox .logo {
+.header .logoBox .logo {
   height: 100%;
   width: 100%;
   border-radius: 10px;
 }
 
-.navBox {
+.header .navBox {
   height: 95%;
   width: max-content;
   /* flex: 1; */
   /* margin: 0 5% 0 10%; */
 }
-.navBox ul {
+.header .navBox ul {
   height: 100%;
   width: 100%;
   display: flex;
@@ -59,23 +59,34 @@ body {
   column-gap: 10px;
   color: #ffffff;
 }
-.navBox ul li {
+.header .navBox ul li {
   padding: 10px;
 
 }
 
-.profileBox{
+.header .loginBtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.header .loginBtn:hover {
+  box-shadow: 0 0 10px #64a700;
+}
+
+
+.header .profileBox{
   height: 50px;
   width: 50px;
   margin-right: 5%;
   position: relative;
 }
-.profileBox .profileImg{
+.header .profileBox .profileImg{
   height: 100%;
   width: 100%;
   border-radius: 50%;
 }
-.profileBox span {
+.header .profileBox span {
   position: absolute;
   bottom: -18px;
   right: 50%;

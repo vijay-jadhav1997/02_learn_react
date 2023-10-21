@@ -9,7 +9,10 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
+  console.log("Body rendered just!");
 
   useEffect(() => {
     fechResList();
@@ -24,13 +27,15 @@ const Body = () => {
       );
 
       const jsonData = await listData.json();
-      console.log(jsonData?.data?.cards);
+      // console.log(jsonData?.data?.cards);
 
       setResList(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredList(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      
       // setResList(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     } catch (error) {
-      
+      console.log(error);
     }
 
     //* promise error handling using .then().catch()
@@ -59,40 +64,69 @@ const Body = () => {
 
   }
   
-  if (resList.length === 0) {
-    return <Shimmer />;
-    // return (restaurantsList.map((data) => {
-    //   return <RestaurantCard key={data.info.id} restaurantData ={data} />
-    //   })
-    // )
-  }
+  //* Conditional rendering:
+  // if (resList.length === 0) {
+  //   // return <Shimmer />;
+  //   // return (restaurantsList.map((data) => {
+  //   //   return <RestaurantCard key={data.info.id} restaurantData ={data} />
+  //   //   })
+  //   // )
+  // }
   
-  return (
+  //* Conditional rendering:
+  return resList.length === 0 ? <Shimmer /> : (
     <div className="body">
       <div className="searchBox">
-        <input className="searchInput" type="search" placeholder="Search here..." />
-        <button className="searchBtn" >Search</button>
+        <input className="searchInput" type="text" placeholder="Search here..." 
+          value={searchText}
+          onChange={
+            (event) => {
+              setSearchText(event.target.value)
+            }
+            
+          }
+        />
+        <button className="searchBtn"
+          onClick={() => {
+            console.log(searchText)
+            let searchList;
+
+            if(searchText.length !== 0) {
+              searchList = resList.filter((restaurant) => {
+                // console.log((((restaurant.info?.name).toUpperCase()).includes((event.target.value).toUpperCase())))
+                return ((restaurant.info?.name).toUpperCase().includes(searchText.toUpperCase()));
+              })
+            }
+            else{
+              searchList = [...resList];
+            }
+            
+            setFilteredList(searchList);
+
+          }}
+        >Search</button>
       </div>
 
       <div className="filter_box">
         <button className="filter_btn"
           onClick={(event) => {
-            let filteredList;
+            event.target.classList.toggle('active');
+            let filterList;
             
-            if(event.target.classList.toggle('active') === true) {
+            if(event.target.classList.length === 2 ) {
               // event.target.classList.toggle('active');
-              filteredList = resList.filter(
+              filterList = resList.filter(
                 (restaurant) => {
                   console.log(restaurant.info?.avgRating)
-                return (restaurant.info?.avgRating > 4)
+                  return (restaurant.info?.avgRating > 4)
                 }
               )
-              setResList(filteredList);
-              console.log("if => jay hari!")
+              console.log("if => jay hari!", `${filteredList.length}`)
+              setFilteredList(filterList);
             } 
             else {
-              setResList(resList);
-              console.log("else => jay hari!");
+              console.log("else => jay hari!", `${filteredList.length}`);
+              setFilteredList(resList);
             }
           }}
         >
@@ -103,7 +137,7 @@ const Body = () => {
       </div>
       <div className="cardContainer">
        
-        {resList.map((data) => {
+        {filteredList.map((data) => {
           return <RestaurantCard key={data.info.id} restaurantData ={data} />
         })}
         {/* {restaurantsList.map((data) => {
