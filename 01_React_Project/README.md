@@ -41,5 +41,5 @@
 - Normal JS utility functions
 - Examples: 
   useState(): Superpowerful State Variable in react.
-    - whenever State variable updates react re-render the components
+    - whenever State variable updates, react triggers a reconciliation cycle (re-render the component associated withe that State variable)
   useEffect(): 

@@ -6,49 +6,63 @@ import { useState, useEffect } from "react";
 
 
 
-// let resoLists = [...resoList];
+// let resList = [...resoList];
+let num = 1;
 
 
 const Body = () => {
-  const [resoLists, setResoLists] = useState([...resoList]);
+  const [resList, setResoLists] = useState([...resoList]);
 
   useEffect(() => {
-    fetchData();
+    // console.log("!! Jay Hari !!");
+    // fetchData();
   },[])
 
-  const fetchData = async () => {
-    const data = await fetch (
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
-    const jsons = await data.json();
-    console.log(jsons);
-  }
-  
+  console.log(`Body Rendered By React ${num} times`);
+  num++;
   return (
     <div className="body">
       <div className="searchBox">
-        <input className="searchInput" type="search" placeholder="Search here..." />
+        <input className="searchInput" type="search" placeholder="Search here..." 
+          onKeyUp={
+            (event) => {
+              let searchList;
+              // console.log((event.target.value).toUpperCase())
+              if(event.target.value.length != 0) {
+                searchList = resoList.filter((restaurant) => {
+                  // console.log((((restaurant.info?.name).toUpperCase()).includes((event.target.value).toUpperCase())))
+                  return (((restaurant.info?.name).toUpperCase()).includes((event.target.value).toUpperCase()));
+                })
+              }
+              else {
+                searchList = [...resoList];
+              }
+              // console.log(searchList.length)
+              setResoLists(searchList)
+            }
+          }
+        />
         <button className="searchBtn" >Search</button>
       </div>
       <div className="filter_box">
         <button className="filter_btn"
           onClick={(event) => {
             let filteredList;
-            
-            if(event.target.classList.toggle('active') === true) {
-              // event.target.classList.toggle('active');
-              filteredList = resoLists.filter(
+            event.target.classList.toggle('active');
+            if(event.target.classList.length === 2) {
+              filteredList = resList.filter(
                 (restaurant) => {
                 return (restaurant.info?.ratingNew?.ratings?.DELIVERY?.rating > 4)
                 }
               )
-              console.log("if => jay hari!")
-              setResoLists(filteredList);
+              // console.log("if => jay hari!", `=> ${filteredList.length}`)
             } 
             else {
-              setResoLists(resoLists);
-              console.log("else => jay hari!");
+              filteredList = [...resoList]
+              // console.log("else => jay hari!", `=> ${filteredList.length}`);
             }
+            setResoLists(filteredList);
+
           }}
         >
         Top Rated Reastaurants</button>
@@ -57,7 +71,7 @@ const Body = () => {
         <h1>Delivery Restaurants in Mumbai</h1>
       </div>
       <div className="cardContainer">
-        {resoLists.map((data) => {
+        {resList.map((data) => {
           return <RestaurantCard key={data.info.resId} restaurantData ={data} />
         })}
       </div>
