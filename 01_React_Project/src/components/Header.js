@@ -2,8 +2,19 @@ import React from "react";
 import { useState } from "react";
 
 const Header = () => {
+  //* useState declare Local State Variable- Super Powerful variable:
   const [btnName, setBtnName] = useState("Login");
 
+  
+  //* if no depedency array => useEffect is called on every render of component which useEffect belongs to.
+  //* if depedency array is empty "[]" => useEffect is called only once when component  render first time.
+  //* if depedency array is [btnName] => useEffect is called everytime when btnName is updated.
+  useEffect(() => {
+    console.log("useEffect is called");
+  },[btnName]);
+
+  console.log("Header is rendered!");
+  
   
   return (
     <div className="header">

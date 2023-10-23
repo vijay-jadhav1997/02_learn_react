@@ -40,6 +40,14 @@
 # Hooks in React :
 - Normal JS utility functions
 - Examples: 
-  useState(): Superpowerful State Variable in react.
-    - whenever State variable updates, react triggers a reconciliation cycle (re-render the component associated withe that State variable)
-  useEffect(): 
+  1) useState(): 
+    - syntax: const [variable, setVariable] = useState("initial value"); initial value of variable can be any JS data type..
+    - useState declare Local State Variable- Super Powerful variable in react.
+    - always declared within the functional component's body
+    - whenever State variable updates, react triggers a reconciliation cycle (re-render the component associated with that State variable).
+  2) useEffect(): 
+   - syntax: useEffect(() => {}, ["dependency array"]);
+   - if no depedency array => useEffect is called on every render of component which useEffect belongs to.
+   - if depedency array is empty "[]" => useEffect is called only once when component  render first time.
+   - if depedency array is ["stateVariable"] => useEffect is called everytime when stateVariable is updated.
+  
