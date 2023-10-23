@@ -244,3 +244,71 @@ body {
   font-size: 14px;
   color: #dedede;
 }
+
+
+
+
+.about {
+  width: 80%;
+  color: #ffffff;
+  padding: 20px 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow-wrap: normal;
+  margin: 120px auto 0;
+}
+.about h1 {
+  width: max-content;
+  margin: 10px auto;
+}
+.about h2,
+.about h3 {
+  margin-block: 15px;
+}
+.about p {
+  margin: 10px;
+  line-height: 22px;
+}
+
+.contact {
+  width: 80%;
+  margin: 120px auto;
+  border-radius: 25px;
+  padding: 10px 10px 20px;
+  background-color: #fff;
+}
+.contact h3 {
+  padding: 10px 20px;
+  width: max-content;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ff47f9;
+}
+.contact ul {
+  border: 1px solid #bababa;
+  padding: 20px 40px;
+  border-radius: 5px;
+  width: max-content;
+  margin: 40px auto 0;
+}
+.contact ul li {
+  margin-block: 10px;
+  background-color: rgb(248, 120, 245);
+  padding: 10px;
+  font-size: 20px;
+}
+.contact ul li:nth-child(2n) {
+  background-color: #6bf8e3;
+}
+
+.error {
+  height: 100vh;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #fff;
+}
+.error h1,
+.error h2,
+.error h3 {
+  margin-block: 20px;
+}

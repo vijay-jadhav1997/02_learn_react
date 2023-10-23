@@ -28,8 +28,8 @@
   - to build project production ready:
     >> npm run build
 
-
-
+- React Router library: to install in project setup
+  - npm install react-router-dom
 
 
 

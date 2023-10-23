@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   //* useState declare Local State Variable- Super Powerful variable:
@@ -22,11 +23,11 @@ const Header = () => {
         <img className="logo" src="https://cdn.dribbble.com/users/2567056/screenshots/6262603/food_logo.jpg"/>
       </div>
       <div className="navBox">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
+      <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
+          <li><Link to="/">Cart</Link></li>
         </ul>
       </div>
       <div>
