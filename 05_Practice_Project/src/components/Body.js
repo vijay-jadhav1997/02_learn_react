@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 
 const Body = () => {
+  //* useState declare/create Local State Variable- Super Powerful variable:
   const [resList, setResList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -16,7 +17,7 @@ const Body = () => {
 
   useEffect(() => {
     fechResList();
-  });
+  },[]);
 
   const fechResList = async() => {
     //* promise error handling with async()- await & try-catch:
@@ -65,13 +66,13 @@ const Body = () => {
   }
   
   //* Conditional rendering:
-  // if (resList.length === 0) {
-  //   // return <Shimmer />;
-  //   // return (restaurantsList.map((data) => {
-  //   //   return <RestaurantCard key={data.info.id} restaurantData ={data} />
-  //   //   })
-  //   // )
-  // }
+  if (resList.length === 0) {
+    // return <Shimmer />;
+    // return (restaurantsList.map((data) => {
+    //   return <RestaurantCard key={data.info.id} restaurantData ={data} />
+    //   })
+    // )
+  }
   
   //* Conditional rendering:
   return resList.length === 0 ? <Shimmer /> : (
@@ -114,19 +115,17 @@ const Body = () => {
             let filterList;
             
             if(event.target.classList.length === 2 ) {
-              // event.target.classList.toggle('active');
               filterList = resList.filter(
                 (restaurant) => {
-                  console.log(restaurant.info?.avgRating)
                   return (restaurant.info?.avgRating > 4)
                 }
               )
-              console.log("if => jay hari!", `${filteredList.length}`)
               setFilteredList(filterList);
+              // console.log("if => jay hari!", `${filteredList.length}`)
             } 
             else {
-              console.log("else => jay hari!", `${filteredList.length}`);
               setFilteredList(resList);
+              // console.log("else => jay hari!", `${filteredList.length}`);
             }
           }}
         >
