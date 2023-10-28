@@ -213,9 +213,10 @@ body {
   row-gap: 8px;
   width: 100%;
 }
-/* .restaurantCard .cardDetails h5 {
-  width: 100%;
-} */
+.restaurantCard .cardDetails .deliveryTime {
+  font-size: 14px;
+  color: #ececec;
+}
 
 
 
