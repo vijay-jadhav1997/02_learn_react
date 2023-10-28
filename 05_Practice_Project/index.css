@@ -349,3 +349,120 @@ body {
 .error h3 {
   margin-block: 20px;
 }
+
+
+.restaurantMenu {
+  color: #fff;
+  margin: 100px auto 0;
+  width: 80%;
+  max-width: 800px;
+}
+.restaurantMenu .restaurantHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dotted #cdcdcd;
+  padding: 10px 0;
+}
+.restaurantMenu .restaurantHeader .restaurantAdress h3{
+  margin-block: 10px;
+}
+.restaurantMenu .restaurantHeader .restaurantAdress p{
+  margin-block: 5px;
+  font-size: 12px;
+  color: #cecece;
+}
+
+.restaurantMenu .restaurantHeader .ratingBox{
+  padding: 5px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+.restaurantMenu .restaurantHeader .ratingBox .rating {
+  padding: 5px 0;
+  border-bottom: 1px solid #bdbdbd;
+  color: #ecba3d;
+  font-size: 14px;
+}
+.restaurantMenu .restaurantHeader .ratingBox .totalRating {
+  padding: 5px 0;
+  color: #cfcece;
+  font-size: 10px;
+}
+
+
+.restaurantMenu .priceBox {
+  padding: 20px 10px;
+  margin: 5px 0;
+}
+.restaurantMenu .priceBox p{
+  font-size: 14px;
+  font-weight: 600;
+}
+.restaurantMenu .priceBox p span{
+  border: 0.5px solid #eeeeee;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin: 0 10px 0 30px;
+}
+.restaurantMenu .offerBoxContainer {
+  padding: 10px 0;
+  margin-bottom: 20px;
+  display: flex;
+  overflow-x: hidden;
+}
+.restaurantMenu .offerBoxContainer .offerBox {
+  width: 500px;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #dfdfdf;
+  border-radius:5px;
+}
+.restaurantMenu .offerBoxContainer .offerBox p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #dadada;
+}
+
+.restaurantMenu .menuCardsContainer {
+  margin: 10px 0;
+  width: 100%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-block: 10px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #d5d5d5;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox{
+  margin-left: 10px;
+  width: 75%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox h4{
+ margin: 5px 0;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox .menuPrice{
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox .menuDescription{
+  font-size: 14px;
+  color: #d6d6d6;
+}
+
+.restaurantMenu .menuCardsContainer .menuCardBox .menuImgBox{
+  margin-left: 10px;
+  width: 20%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuImgBox img{
+  border-radius: 10px;
+  width: 100%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuImgBox p{
+  font-size: 11px;
+  text-align: center;
+  color: #fdfdfd;
+}

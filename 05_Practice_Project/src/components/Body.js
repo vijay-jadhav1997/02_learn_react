@@ -13,7 +13,7 @@ const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log("Body rendered just!");
+  // console.log("Body rendered just!");
 
   useEffect(() => {
     fechResList();
@@ -132,7 +132,7 @@ const Body = () => {
         Top Rated Reastaurants</button>
       </div>
       <div className="heading_box">
-        <h1>Delivery Restaurants in Koromandalam</h1>
+        <h1>Delivery Restaurants in Koramangala</h1>
       </div>
       <div className="cardContainer">
        

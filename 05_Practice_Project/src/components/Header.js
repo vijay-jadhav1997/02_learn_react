@@ -11,10 +11,10 @@ const Header = () => {
   //* if depedency array is empty "[]" => useEffect is called only once when component  render first time.
   //* if depedency array is [btnName] => useEffect is called everytime when btnName is updated.
   useEffect(() => {
-  console.log("useEffect is called");
+  // console.log("useEffect is called");
   },[btnName]);
 
-  console.log("Header is rendered!");
+  // console.log("Header is rendered!");
 
   return (
     <div className="header">
