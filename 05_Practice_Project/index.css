@@ -307,7 +307,51 @@ body {
   margin: 10px;
   line-height: 22px;
 }
+.about .teamMemberBox {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  row-gap: 15px;
+}
+.about .teamMember {
+  /* border: 1px solid #dbdbdb; */
+  box-shadow: 0 0 10px #ffffff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  padding: 10px 20px;
+  background-color: #91f4f191;
+  border-radius: 10px;
+}
+.about .teamMember img {
+  display: inline-block;
+  margin: 0 auto 5px;
+  padding: 10px;
+  width: 210px;
+  height: 210px;
+  border: 1px double #dbdbdb;
+  box-shadow: 0 0 10px #ffffff;
+  background-color: #df1182;
+  border-radius: 50%;
+}
+.about .teamMember .countBtn {
+  padding: 5px 10px;
+  font-weight: 600px;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.about .teamMember .count span {
+  padding: 5px 6px;
+  font-weight: 600px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: rgb(254, 0, 233);
+  box-shadow: 0 0 10px rgb(239, 247, 101);
+}
 
+/* *ContactUs Styling */
 .contact {
   width: 80%;
   margin: 120px auto;
