@@ -1,4 +1,9 @@
-/*  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*
 *{
   margin: 0;
   padding: 0;
@@ -50,8 +55,6 @@ body {
 .header .navBox {
   height: 95%;
   width: max-content;
-  /* flex: 1; */
-  /* margin: 0 5% 0 10%; */
 }
 .header .navBox ul {
   height: 100%;
@@ -60,10 +63,19 @@ body {
   align-items: center;
   list-style: none;
   column-gap: 10px;
-  color: #ffffff;
 }
 .header .navBox ul li {
+  text-transform: none;
+  text-decoration: none;
   padding: 10px;
+  border-radius: 10px;
+}
+.header .navBox ul li .linkTag {
+  color: #ffffff;
+  text-decoration: none;
+}
+.header .navBox ul li:hover {
+  box-shadow: 0 0 5px #111b73;
 }
 
 .header .loginBtn {
@@ -93,7 +105,6 @@ body {
   bottom: -18px;
   right: 50%;
   transform: translate(50%);
-  /* display: none; */
   color: #fff;
   text-shadow: -2px -2px 3px #ffff00;
   width: max-content;
@@ -104,11 +115,6 @@ body {
   background-color: #2322549d;
   text-align: center;
 }
-/* .profileBox span:hover {
-  display: block;
-} */
-
-/** styling body */
 .body {
   margin-top: 125px;
   
@@ -209,7 +215,6 @@ body {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  /* right: 5px; */
   padding: 5px 10px;
   font-size: 20px;
   background-color: #232254bf;
@@ -230,7 +235,6 @@ body {
 
 
 
-/* * Shimmer UI Styling... */
 .shimmerCardsContainer {
   display: flex;
   justify-content: center;
@@ -324,7 +328,6 @@ body {
   row-gap: 15px;
 }
 .about .teamMember {
-  /* border: 1px solid #dbdbdb; */
   box-shadow: 0 0 10px #ffffff;
   display: flex;
   flex-direction: column;
@@ -360,7 +363,6 @@ body {
   box-shadow: 0 0 10px rgb(239, 247, 101);
 }
 
-/* *ContactUs Styling */
 .contact {
   width: 80%;
   margin: 120px auto;
@@ -391,6 +393,32 @@ body {
 .contact ul li:nth-child(2n) {
   background-color: #6bf8e3;
 }
+
+
+.grocery {
+  width: 80%;
+  margin: 125px auto 10px;
+  padding: 10px 50px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+}
+.grocery h1 {
+  text-align: center;
+  width: max-content;
+}
+.grocery ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+.grocery ul {
+  cursor: pointer;
+}
+
 
 .error {
   height: 100vh;
@@ -520,3 +548,4 @@ body {
   text-align: center;
   color: #fdfdfd;
 }
+*/

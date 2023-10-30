@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
   return (
     <div className="restaurantCard">
       <div className="bannerBox">
-        <img src={CDN_URL + cloudinaryImageId} />
+        <img className="w-56 rounded-md" src={CDN_URL + cloudinaryImageId} />
         <span>{
           (aggregatedDiscountInfoV3?.header !== undefined ? aggregatedDiscountInfoV3?.header : "")
           + " " + 
@@ -30,7 +30,7 @@ const RestaurantCard = (props) => {
         <h5>{cuisines.join(', ')}</h5>
         <h5>Location: {areaName}</h5>
         <h4>Price: {costForTwo}</h4>
-        <h4 className="deliveryTime">deliver in  {sla.slaString}</h4>
+        <h4 className="font-medium">deliver in  {sla.slaString}</h4>
       </div>
     </div>
 
