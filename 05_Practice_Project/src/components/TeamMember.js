@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 //* Functional Component:
-export const TeamMember2 = (props) => {
+const TeamMember2 = (props) => {
   const[count, setCount] = useState(1);
   const[userInfo, setuserInfo] = useState({});
 
@@ -14,7 +14,7 @@ export const TeamMember2 = (props) => {
       const userData = await fetch("https://api.github.com/users/akshaymarch7");
       const userDataJson = await userData.json();
       setuserInfo(userDataJson);
-      console.log(userDataJson);
+      // console.log(userDataJson);
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +63,7 @@ class TeamMember extends React.Component {
     try {
       const teamMemberData = await fetch("https://api.github.com/users/vijay-jadhav1997");
       const teamMemberInfo = await teamMemberData.json();
-      console.log(teamMemberInfo);
+      // console.log(teamMemberInfo);
   
       this.setState({
         name: teamMemberInfo.name,
@@ -75,7 +75,7 @@ class TeamMember extends React.Component {
      console.log(error); 
     }
   }
-  debugger;
+
   render(){
     const {name, count, location, avatar_url, public_repos} = this.state;
     return(
@@ -108,4 +108,4 @@ class TeamMember extends React.Component {
     )
   }
 }
-export default TeamMember;
+export  {TeamMember2, TeamMember as default};

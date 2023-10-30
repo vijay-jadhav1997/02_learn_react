@@ -1,41 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import {MENU_IMG_URL, MENU_API} from "../utils/constants"
+import {MENU_IMG_URL} from "../utils/constants"
+import {useRestaurantMenu} from "../utils/customHooks";
 
 const RestaurantMenu = () => {
-  const [menuData, setMenuData] = useState(null);
-  // const [offerData, setOfferData] = useState(null);
 
   const {resId} = useParams();
-  console.log(resId);
+  // console.log(resId);
 
-  useEffect(() => {
-    fetchMenu();
-  }, [])
+  const menuData = useRestaurantMenu(resId);
+  // console.log(menuData);
 
-  const fetchMenu = async () => {
-    try {
-      const dataInJson = await fetch(MENU_API + resId );
-      const data = await dataInJson.json();
-      // console.log(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card.itemCards);
-      setMenuData(data?.data?.cards);
-    } 
-    catch (error) {
-      console.log(error);
-    }
-  }
   
   if(menuData === null) return <Shimmer />;
-  // console.log(menuData);
   
-  const {name, areaName, costForTwoMessage, avgRating, cuisines, totalRatingsString, aggregatedDiscountInfo} = menuData[0]?.card?.card?.info;
-  const {offers} = menuData[1]?.card?.card?.gridElements?.infoWithStyle;
-  const menuCards1 = menuData[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
-  const menuCards2 = menuData[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-  const menuCards3 = menuData[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards;
-  // console.log(menuData[2]);
-  // console.log(menuCards3);
+  const {name, areaName, costForTwoMessage, avgRating, cuisines, totalRatingsString, aggregatedDiscountInfo} = menuData?.data?.cards[0]?.card?.card?.info;
+  const {offers} = menuData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
+  const menuCards1 = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
+  const menuCards2 = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
+  const menuCards3 = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards;
 
   const OfferBox = ({offerData})=> {
     const {description, header, couponCode} = offerData?.info
