@@ -1,27 +1,43 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 // import restaurantsList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import { useRestaurantList } from "../utils/customHooks";
 
 
 const Body = () => {
   //* useState declare/create Local State Variable- Super Powerful variable:
+  const [resList, setResList] = useState(null);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
- 
-
-  //* Conditional rendering:
-  if (filteredList.length === 0) {
-    return  <Shimmer />;
-  }
-
-  const resList = useRestaurantList();
-  setFilteredList(resList);
 
   
-  return (
+  // const resList = useRestaurantList();
+  // setFilteredList(resList);
+  // console.log(resList);
+ 
+  useEffect(()=>{
+    fetchResList();
+  },[]);
+
+  const fetchResList  = async () => {
+    try {
+      const resListData = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+      const resListDataJson = await resListData.json();
+      // console.log(resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setResList(resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredList(resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  
+  
+  
+  //* Conditional rendering:
+  return resList === null ?  <Shimmer /> : (
     <div className="body">
       <div className="searchBox">
         <input className="searchInput" type="text" placeholder="Search here..." 

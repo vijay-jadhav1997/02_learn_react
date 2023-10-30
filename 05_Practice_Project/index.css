@@ -15,18 +15,21 @@ body {
   padding: 20px 0;
 }
 
+.headerBox {
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 10px;
+  z-index: 100;
+}
 .header {
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
-  left: 5%;
-  right: 5%;
-  top: 10px;
+  width: 100%;
   background-color: #e876fc;
   border-radius: 15px;
-  z-index: 100;
 }
 .header:hover {
   box-shadow: 0 0 10px #e6e6e6;
@@ -95,13 +98,19 @@ body {
   text-shadow: -2px -2px 3px #ffff00;
   width: max-content;
 }
+.headerBox .onlineStatus {
+  color: #fff;
+  font-size: 20px;
+  background-color: #2322549d;
+  text-align: center;
+}
 /* .profileBox span:hover {
   display: block;
 } */
 
 /** styling body */
 .body {
-  margin-top: 105px;
+  margin-top: 125px;
   
 }
 .searchBox {
@@ -398,7 +407,7 @@ body {
 
 .restaurantMenu {
   color: #fff;
-  margin: 100px auto 0;
+  margin: 125px auto 0;
   width: 80%;
   max-width: 800px;
 }

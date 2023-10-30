@@ -22,9 +22,9 @@ const useRestaurantMenu = (resId) => {
 }
 
 const useRestaurantList = () => {
-  const [restaurantList, setRestaurantList] = useState([]);
+  const [restaurantList, setRestaurantList] = useState(null);
   
-  useEffect(()=>{
+  useEffect(()=> {
     fetchResList();
   },[]);
 
@@ -32,7 +32,7 @@ const useRestaurantList = () => {
     try {
       const resListData = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
       const resListDataJson = await resListData.json();
-      console.log(resListDataJson);
+      console.log(resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       setRestaurantList(resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.log(error);

@@ -1,6 +1,8 @@
 import TeamMember, {TeamMember2} from "./TeamMember";
 
 const AboutUs = () => {
+
+  
   return (
     <div className="about">
       <h1>💥🌼!! Ram Krushna Hari !! 🌼💥</h1>
