@@ -38,7 +38,7 @@ const Body = () => {
   
   //* Conditional rendering:
   return resList === null ?  <Shimmer /> : (
-    <div className="body">
+    <div className="mt-36 text-white">
       <div className="searchBox">
         <input className="searchInput" type="text" placeholder="Search here..." 
           value={searchText}
@@ -70,7 +70,7 @@ const Body = () => {
         >Search</button>
       </div>
 
-      <div className="filter_box">
+      <div className="border mt-4 p-3 rounded-md mx-[5%]">
         <button className="filter_btn"
           onClick={(event) => {
             event.target.classList.toggle('active');
@@ -93,10 +93,10 @@ const Body = () => {
         >
         Top Rated Reastaurants</button>
       </div>
-      <div className="heading_box">
+      <div className="mx-[5%] mt-3 text-xl">
         <h1>Delivery Restaurants in Koramangala</h1>
       </div>
-      <div className="cardContainer">
+      <div className="flex gap-y-5 mt-5 flex-wrap justify-around mx-[5%]">
        
         {filteredList.map((data) => {
           return (

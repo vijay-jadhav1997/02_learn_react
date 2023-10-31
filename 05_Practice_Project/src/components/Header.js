@@ -11,21 +11,21 @@ const Header = () => {
   const isOnline = useOnlineStatus();
   
   return (
-    <div className="bg-pink-400">
-      <div className="flex justify-between h-35">
-        <div className="w-50">
-          <img className="w-20 h-20" src={LOGO_URL}/>
+    <div className="bg-pink-400 z-50 fixed top-3 rounded left-[5%] right-[5%]">
+      <div className="flex justify-between h-24 items-center">
+        <div className="">
+          <img className="w-24 h-20 mx-2 rounded-md " src={LOGO_URL}/>
         </div>
         <div className="">
-          <ul className="flex justify-between">
-            <li><Link className="linkTag" to="/">Home</Link></li>
-            <li><Link className="linkTag" to="/about">About Us</Link></li>
-            <li><Link className="linkTag" to="/contact">Contact Us</Link></li>
-            <li><Link className="linkTag" to="/grocery">Grocery Store</Link></li>
+          <ul className="flex justify-between text-white font-medium">
+            <li><Link className="px-2 py-1 hover:border rounded-md" to="/">Home</Link></li>
+            <li><Link className="px-2 py-1 hover:border rounded-md" to="/about">About Us</Link></li>
+            <li><Link className="px-2 py-1 hover:border rounded-md" to="/contact">Contact Us</Link></li>
+            <li><Link className="px-2 py-1 hover:border rounded-md" to="/grocery">Grocery Store</Link></li>
           </ul>
         </div>
         <div>
-          <button className="loginBtn"
+          <button className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:border"
             onClick={
               (event) => {
                 btnName === "Login" ? setBtnName("Log out") : setBtnName("Login")
@@ -33,16 +33,15 @@ const Header = () => {
             }
           >{btnName}</button>
         </div>
-        <div className="profileBox">
-          <img className="w-20" 
+        <div className="relative mx-1">
+          <img className="w-16 h-16 rounded-[50%]" 
             src="https://cdn.shopclues.com/images1/detailed/91725/140527619-91725149-1535802376.jpg"
-
           />
-          <span>Radhe Shyam</span>
+          {/* <span className="absolute">Radhe Shyam</span> */}
         </div>
       </div>
-      <div className="onlineStatus">
-        {!isOnline ? `🔄 Look like You're Offline...! Please, check your internet Connection.` : ""}
+      <div className="absolute text-white font-medium bottom-1 left-40">
+        Online status: {isOnline ? `✅` : "🔴"}
       </div>
     </div>
   )
