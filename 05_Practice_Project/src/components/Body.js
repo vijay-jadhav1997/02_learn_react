@@ -39,8 +39,8 @@ const Body = () => {
   //* Conditional rendering:
   return resList === null ?  <Shimmer /> : (
     <div className="mt-36 text-white">
-      <div className="searchBox">
-        <input className="searchInput" type="text" placeholder="Search here..." 
+      <div className="bg-slate-400 py-1 mx-auto rounded-md w-max">
+        <input className="outline-none bg-transparent indent-3 w-[50vw] placeholder:text-white" type="text" placeholder="Search here..." 
           value={searchText}
           onChange={
             (event) => {
@@ -49,7 +49,7 @@ const Body = () => {
             
           }
         />
-        <button className="searchBtn"
+        <button className="mx-2 bg-gray-200 px-4 py-2 text-gray-800 rounded-md hover:text-gray-100 hover:bg-transparent hover:border active:opacity-60 font-medium"
           onClick={() => {
             console.log(searchText)
             let searchList;
@@ -71,7 +71,7 @@ const Body = () => {
       </div>
 
       <div className="border mt-4 p-3 rounded-md mx-[5%]">
-        <button className="filter_btn"
+        <button className="bg-slate-500 px-3 py-2 rounded-md hover:opacity-90"
           onClick={(event) => {
             event.target.classList.toggle('active');
             let filterList;
