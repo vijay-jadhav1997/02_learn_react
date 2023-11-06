@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import {useRestaurantMenu} from "../utils/customHooks";
-import MenuCategory, {MenuCategoryVegOnly} from "./MenuCategory";
+import MenuCategory from "./MenuCategory";
 
 import { FaStar } from "react-icons/fa6";
 import { CgTimelapse } from "react-icons/cg";
@@ -10,6 +10,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi2";
 
 const RestaurantMenu = () => {
   const [vegMenuOnly, setVegMenuOnly] = useState(false);
+  const [showAccordion, setShowAccordion] = useState(0);
 
   const {resId} = useParams();
   // console.log(resId);
@@ -86,19 +87,16 @@ const RestaurantMenu = () => {
         }
       </div>
       <div className="menuCardsContainer  divide-slate-500 divide-y-[17px]">
-
         {
-          vegMenuOnly 
-          ?
-          menuCategories.map((menuCategory) => {
+          menuCategories.map((menuCategory, index) => {
             return (
-              <MenuCategoryVegOnly key={menuCategory?.card?.card?.title} data={menuCategory?.card?.card} />
-            )
-          }) 
-          :
-          menuCategories.map((menuCategory) => {
-            return (
-              <MenuCategory key={menuCategory?.card?.card?.title} data={menuCategory?.card?.card} />
+              <MenuCategory 
+                key={menuCategory?.card?.card?.title} 
+                data={menuCategory?.card?.card} 
+                isVegInfo={vegMenuOnly} 
+                accordion={index === showAccordion ? true : false }
+                setShowAccordionFn={() => setShowAccordion(index)}
+              />
             )
           }) 
         }

@@ -14,7 +14,7 @@ const MenuCardBox = ({menuData})=> {
           <span className="text-orange-300 text-sm ml-2">{ribbon.hasOwnProperty('text') ? ("⭐" + ribbon?.text) : ""}</span>
         </h4>
         <h4 className="font-medium">{name}</h4>
-        <p className="menuPrice font-light">₹{price/100 || defaultPrice/100} <span className="text-xs p-1 bg-[#FAE8E3] ml-2 border-l-2 border-l-orange-700 text-orange-500">{offerTags !== undefined ? (offerTags[0]?.title + " | " + offerTags[0]?.subTitle) : ""}</span></p>
+        <p className="menuPrice font-light">₹{price/100 || defaultPrice/100} {offerTags !== undefined ? <span className="text-xs px-1 bg-[#FAE8E3] ml-2 border-l-2 border-l-orange-700 text-orange-700"> {offerTags[0]?.title + " | " + offerTags[0]?.subTitle}</span> : ""}</p>
         <p className="menuDescription my-2 text-slate-400 text-sm">{description}</p>
       </div>
       <div className="menuImgBox w-max">
