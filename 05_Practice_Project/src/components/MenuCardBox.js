@@ -3,7 +3,6 @@ import { BiSolidStar } from "react-icons/bi";
 import { PiSquareLogoFill } from "react-icons/pi";
 import { BiCaretUpSquare } from "react-icons/bi";
 
-
 const MenuCardBox = ({menuData})=> {
   const {name, description, price, defaultPrice, imageId, itemAttribute, offerTags, ribbon} = menuData?.card?.info
   // console.log(offerTags);

@@ -2,32 +2,35 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import {useRestaurantMenu} from "../utils/customHooks";
-import MenuCategory from "./MenuCategory";
+import MenuCategory, {MenuCategoryVegOnly} from "./MenuCategory";
+
+import { FaStar } from "react-icons/fa6";
+import { CgTimelapse } from "react-icons/cg";
+import { HiOutlineCurrencyRupee } from "react-icons/hi2";
 
 const RestaurantMenu = () => {
+  const [vegMenuOnly, setVegMenuOnly] = useState(false);
 
   const {resId} = useParams();
   // console.log(resId);
 
   const menuData = useRestaurantMenu(resId);
   // console.log(menuData);
-
   
   if(menuData === null) return <Shimmer />;
   
-  const {name, areaName, costForTwoMessage, avgRating, cuisines, totalRatingsString, aggregatedDiscountInfo} = menuData?.data?.cards[0]?.card?.card?.info;
+  const {name, areaName, costForTwoMessage, avgRating, cuisines, totalRatingsString, availability, veg} = menuData?.data?.cards[0]?.card?.card?.info;
   const {offers} = menuData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
-  // const menuCards1 = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
-  // const menuCards2 = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-  // const menuCards3 = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards;
 
-  // console.log(menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-  // console.log(menuCards1);
+  // console.log(menuData?.data?.cards);
+
+  const {isPureVeg} = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card?.card;
+    
   const menuCategories = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((card) => {
     return (card?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
   })
+  // console.log(menuCategories);
 
-// console.log(menuCategories);
 
   const OfferBox = ({offerData})=> {
     const {description, header, couponCode} = offerData?.info
@@ -40,6 +43,9 @@ const RestaurantMenu = () => {
     )
   }
   
+  function vegOnly() {
+    setVegMenuOnly(!vegMenuOnly);
+  }
   
   return (
     <div className="restaurantMenu mt-40 text-white mx-auto w-5/6 lg:w-3/5">
@@ -50,40 +56,52 @@ const RestaurantMenu = () => {
           <p className="text-slate-400 text-sm">{areaName}</p>
         </div>
         <div className="ratingBox border rounded-md border-slate-400 px-2 divide-y divide-slate-400">
-          <p className="rating text-center text-green-400 font-semibold py-2">⭐ {avgRating}</p>
+          <p className="rating text-center text-green-400 font-semibold py-2 flex justify-center items-center"><FaStar />  <span className="ml-0.5">{avgRating}</span></p>
           <p className="totalRating text-center text-slate-400 text-[0.65rem] py-2">{totalRatingsString}</p>
         </div>
       </div>
       <div className="priceBox mb-2">
-        <p className="font-semibold">💫 Currently <span className="border px-1.5 mr-2 rounded-full">₹</span> {costForTwoMessage}</p>
+        <p className="font-semibold flex items-center"><span className="text-xl"><CgTimelapse /></span> <span className="mx-2">Currently</span> <span className="text-2xl"><HiOutlineCurrencyRupee /></span> <span className="mx-2">{costForTwoMessage}</span></p>
       </div>
       <div className="offerBoxContainer flex overflow-x-auto space-x-3 py-3 mb-10 scroll-smooth">
         {offers.map((offer) => {
           return(<OfferBox key={offer?.info?.offerIds[0]} offerData={offer}/>)
         })}
       </div>
-      <div className="menuCardsContainer divide-y-4 divide-slate-400">
+      <div className="isVegBox mb-2">
+        {
+          isPureVeg ? 
+          <p className="py-4 border-b border-b-slate-400 pl-2">🌿 <span className="text-xs text-slate-300">PURE VEG</span></p> :
+          <p className="py-4 flex items-center border-b border-b-slate-00 pl-2 text-slate-300">
+            Veg Only
+            <label htmlFor="vegOnly" className="ml-2 peer-checked:bg-white inline-block cursor-pointer relative bg-gray-200 w-14 rounded-full h-6"> 
+              <input type="checkBox" id="vegOnly"
+                className="sr-only peer"
+                onClick={vegOnly}
+              />
+              <span className="w-5 h-5 transition-all duration-600 bg-slate-400 absolute top-1/2 -translate-y-1/2 left-1 rounded-full peer-checked:bg-green-500 peer-checked:left-8"></span>
+            </label>
+          </p> 
+          
+        }
+      </div>
+      <div className="menuCardsContainer  divide-slate-500 divide-y-[17px]">
 
         {
+          vegMenuOnly 
+          ?
+          menuCategories.map((menuCategory) => {
+            return (
+              <MenuCategoryVegOnly key={menuCategory?.card?.card?.title} data={menuCategory?.card?.card} />
+            )
+          }) 
+          :
           menuCategories.map((menuCategory) => {
             return (
               <MenuCategory key={menuCategory?.card?.card?.title} data={menuCategory?.card?.card} />
             )
-          })
+          }) 
         }
-      
-        <div className="text-lg mb-3">
-          {menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.title +  " ("+ menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.length + ")"}
-        </div>
-        {/* {menuCards1.map((menu) => {
-          return(<MenuCardBox key={menu?.card?.info?.id} menuData={menu}/>)
-        })} */}
-        {/* {menuCards3.map((menu) => {
-          return(<MenuCardBox key={menu?.card?.info?.id} menuData={menu}/>)
-        })} */}
-        {/* {menuCards2.map((menu) => {
-          return(<MenuCardBox key={menu?.card?.info?.id} menuData={menu}/>)
-        })} */}
       </div>
     </div>
   )
