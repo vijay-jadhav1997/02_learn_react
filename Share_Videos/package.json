@@ -1,0 +1,26 @@
+{
+  "name": "share_videos",
+  "version": "1.0.0",
+  "description": "Try to share your videos on videoSharePlus",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "keywords": [
+    "react_project"
+  ],
+  "author": "Vijay Jadhav",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "postcss": "^8.4.31",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
