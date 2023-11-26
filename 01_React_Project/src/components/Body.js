@@ -18,8 +18,9 @@ const Body = () => {
     // fetchData();
   },[])
 
+  console.log(useState('Jay Hari')[2]);
   console.log(`Body Rendered By React ${num} times`);
-  num++;
+  num++; //* mutating the variable declared outside the scope(body) of component makes component impure which you must have to avoid in React Project.
   return (
     <div className="body">
       <div className="searchBox">

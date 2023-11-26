@@ -62,14 +62,16 @@
   2) useEffect(): 
    - syntax: useEffect(() => {}, ["dependency array"]);
    - if no depedency array => useEffect is called on every render of component which useEffect belongs to.
-   - if depedency array is empty "[]" => useEffect is called only once when component  render first time.
-   - if depedency array is ["stateVariable"] => useEffect is called everytime when stateVariable is updated.
+   - if depedency array is empty "[]" => useEffect is called only once when component render first time.
+   - if depedency array is ["stateVariable"] => useEffect is called everytime when "stateVariable" updates.
   
 
 
-  # Two Types of Routing in web apps:
-    1) Server Side Routing:
-    2) Client Side Routing:
-      - 
-      ## Dynamic Routing:
+# Two Types of Routing in web apps:
+  1) Server Side Routing:
+  2) Client Side Routing:
+    - 
+    ## Dynamic Routing:
 
+
+## Chunking / Code Splitting / Dynamic Bundling / Lazy loading / on demand loading :

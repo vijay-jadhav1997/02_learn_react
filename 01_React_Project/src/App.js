@@ -8,8 +8,8 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 
-
-
+//* IMP Article link about Hooks:
+//* https://www.freecodecamp.org/news/the-beginners-guide-to-react-hooks/
 
 const AppLayout = () => {
   return (
