@@ -27,7 +27,7 @@ const RestaurantCard = (props) => {
       </div>
 
       <div className="mt-3 pl-1">
-        <h3 className="text-lg">{name.length > 28 ? name.substring(0, 27)+ "..." : name}</h3>
+        <h3 className="text-lg">{name}</h3>
         <h5>{avgRating} Star . <span className="font-medium">  {sla.slaString}</span></h5>
         <h5 className="text-sm mt-3 text-gray-400">{cuisinesString.length > 35 ? cuisinesString.substring(0, 35)+ "..." : cuisinesString}</h5>
         <h5 className=" text-sm mt-1 text-gray-400">Location: {areaName}</h5>
@@ -39,5 +39,19 @@ const RestaurantCard = (props) => {
 }
 
 
-export default RestaurantCard;
+//* Higher Order Component:
+
+//* input - RestaurantCard =>> RetsaurantCardPromoted
+
+const withPromotedLabel = (RestaurantCard) => {
+  return () => {
+    <div>
+      <label>Promoted</label>
+      <RestaurantCard />
+    </div>
+  }
+}
+
+
+export {withPromotedLabel, RestaurantCard as default};
 

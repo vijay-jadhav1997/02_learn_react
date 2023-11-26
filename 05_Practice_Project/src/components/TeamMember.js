@@ -81,7 +81,7 @@ class TeamMember extends React.Component {
   render(){
     const {name, count, location, avatar_url, public_repos} = this.state;
     return(
-      <div className="teamMember">
+      <div className="teamMember my-3">
         <img src={avatar_url} />
         <h4>Name: {name}</h4>
         <h5>Location: {location}</h5>

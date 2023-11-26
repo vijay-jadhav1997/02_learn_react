@@ -10,6 +10,7 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 // import Grocery from "./components/Grocery";
+import TailwindPractice from "../src/components/TailwindPractice"
 
 const Grocery = lazy(() => import("./components/Grocery"));
 

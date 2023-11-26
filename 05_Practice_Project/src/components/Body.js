@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 // import restaurantsList from "../utils/mockData";
 import { useState, useEffect } from "react";
@@ -12,11 +12,6 @@ const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  
-  // const resList = useRestaurantList();
-  // setFilteredList(resList);
-  // console.log(resList);
- 
   useEffect(()=>{
     fetchResList();
   },[]);
@@ -33,8 +28,9 @@ const Body = () => {
     }
   }
   
-  
-  
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  // console.log(resList);
   
   //* Conditional rendering:
   return resList === null ?  <Shimmer /> : (
