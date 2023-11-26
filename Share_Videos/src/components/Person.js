@@ -11,9 +11,9 @@ class Person extends Component {
     console.log(this);
   };
   changeTitle = () => {
-    console.log(this.state);
+    // console.log(this.state);
     this.setState({ title: "!! Shree BholeNathay Namh !!" }, () => {
-      console.log(this.state);
+      // console.log(this.state);
     });
   };
 

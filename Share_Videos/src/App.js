@@ -6,6 +6,7 @@ import Person from "./components/Person";
 import Man from "./components/Man";
 import Prove from "./components/Prove";
 import EventHandling from "./components/EventHandling";
+import UseStateHook from "./components/UseStateHook";
 
 const App = () => {
   console.log("App render..!!");
@@ -18,6 +19,7 @@ const App = () => {
       <Man />
       <Prove />
       <EventHandling />
+      <UseStateHook />
     </div>
   );
 };
