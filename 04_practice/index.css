@@ -146,3 +146,19 @@
 /* .restaurantCard .cardDetails h5 {
   width: 100%;
 } */
+
+
+
+.todoApp {
+  padding-top: 140px;
+  color: #fff;
+}
+.todoApp h1 {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 10px auto;
+  width: max-content;
+}
