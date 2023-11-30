@@ -1,0 +1,552 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: #232254;
+}
+
+.shimmerCardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-top: 120px;
+  padding: 10px;
+}
+.shimmerCardBox {
+  width: 300px;
+  background-color: #90e4fc6f;
+  border: 1px solid #d3d3d3;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.shimmerCardBox:hover {
+  border: 1px solid #ffffff;
+  width: 290px;
+}
+.shimmerCardBox .ShimmerBannerBox {
+  position: relative;
+}
+.shimmerCardBox .ShimmerBannerBox img {
+  border-radius: 10px;
+  width: 100%;
+  height: 250px;
+  box-shadow: 0 0 10px #c4c4c4;
+}
+.shimmerCardBox .ShimmerBannerBox span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color: #d3d3d3;
+}
+.shimmerCardBox .ShimmerCardDetails {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 100%;
+  box-shadow: 0 0 5px #a1a1a1;
+}
+.shimmerCardBox .ShimmerCardDetails h3 {
+  width: 100%;
+  height: 20px;
+  background-color: #c5c4c4;
+  border-radius: 5px;
+}
+.shimmerCardBox .ShimmerCardDetails h5 {
+  width: 50%;
+  height: 20px;
+  background-color: #d8d7d7;
+  border-radius: 5px;
+}
+/*
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#root{
+  width: 100%;
+  padding: 20px 0;
+}
+
+.headerBox {
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 10px;
+  z-index: 100;
+}
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #e876fc;
+  border-radius: 15px;
+}
+.header:hover {
+  box-shadow: 0 0 10px #e6e6e6;
+}
+.header .logoBox{
+  height: 75%;
+  width: 20%;
+  max-width: 110px;
+  margin-left: 3%;
+}
+
+.header .logoBox .logo {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.header .navBox {
+  height: 95%;
+  width: max-content;
+}
+.header .navBox ul {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  column-gap: 10px;
+}
+.header .navBox ul li {
+  text-transform: none;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.header .navBox ul li .linkTag {
+  color: #ffffff;
+  text-decoration: none;
+}
+.header .navBox ul li:hover {
+  box-shadow: 0 0 5px #111b73;
+}
+
+.header .loginBtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.header .loginBtn:hover {
+  box-shadow: 0 0 10px #64a700;
+}
+
+
+.header .profileBox{
+  height: 50px;
+  width: 50px;
+  margin-right: 5%;
+  position: relative;
+}
+.header .profileBox .profileImg{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.header .profileBox span {
+  position: absolute;
+  bottom: -18px;
+  right: 50%;
+  transform: translate(50%);
+  color: #fff;
+  text-shadow: -2px -2px 3px #ffff00;
+  width: max-content;
+}
+.headerBox .onlineStatus {
+  color: #fff;
+  font-size: 20px;
+  background-color: #2322549d;
+  text-align: center;
+}
+.body {
+  margin-top: 125px;
+  
+}
+.searchBox {
+  border-radius: 27px;
+  width: 60%;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.searchBox input,
+.searchBox button {
+  height: 55px;
+  font-size: 20px;
+  outline: none;
+}
+.searchBox input {
+  width: 80%;
+  text-indent: 10%;
+}
+.searchBox button{
+  width: 20%;
+  border-left: 1px solid #c1c0c0;
+  cursor: pointer;
+}
+.searchBox button:hover {
+  opacity: 0.9;
+}
+.searchBox button:active {
+  opacity: 0.6;
+}
+
+
+.filter_box {
+  margin-block: 20px;
+  margin: 20px 5%;
+  border: 1px solid lightgray;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.filter_box .filter_btn{
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter_box .filter_btn:hover {
+  opacity: 0.9;
+}
+
+.filter_box .active {
+  background-color: #232254;
+  color: #fff;
+  box-shadow: 0 0 10px #ebebeb;
+}
+
+.heading_box {
+  margin-block: 20px;
+  padding-left: 5%;
+}
+.heading_box h1 {
+  color: #fff;
+}
+
+
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.restaurantCard {
+  width: 300px;
+  background-color: #90e4fc6f;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+
+}
+.restaurantCard:hover {
+  border: 1px solid #ffffff;
+}
+.restaurantCard .bannerBox {
+  position: relative;
+}
+.restaurantCard .bannerBox img {
+  border-radius: 5px;
+  width: 100%;
+  height: 250px;
+}
+.restaurantCard .bannerBox span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color: #232254bf;
+
+}
+.restaurantCard .cardDetails {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  width: 100%;
+}
+.restaurantCard .cardDetails .deliveryTime {
+  font-size: 14px;
+  color: #ececec;
+}
+
+
+
+
+
+
+
+
+.about {
+  width: 80%;
+  color: #ffffff;
+  padding: 20px 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow-wrap: normal;
+  margin: 120px auto 0;
+}
+.about h1 {
+  width: max-content;
+  margin: 10px auto;
+}
+.about h2,
+.about h3 {
+  margin-block: 15px;
+}
+.about p {
+  margin: 10px;
+  line-height: 22px;
+}
+.about .teamMemberBox {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  row-gap: 15px;
+}
+.about .teamMember {
+  box-shadow: 0 0 10px #ffffff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  padding: 10px 20px;
+  background-color: #91f4f191;
+  border-radius: 10px;
+}
+.about .teamMember img {
+  display: inline-block;
+  margin: 0 auto 5px;
+  padding: 10px;
+  width: 210px;
+  height: 210px;
+  border: 1px double #dbdbdb;
+  box-shadow: 0 0 10px #ffffff;
+  background-color: #df1182;
+  border-radius: 50%;
+}
+.about .teamMember .countBtn {
+  padding: 5px 10px;
+  font-weight: 600px;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.about .teamMember .count span {
+  padding: 5px 6px;
+  font-weight: 600px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: rgb(254, 0, 233);
+  box-shadow: 0 0 10px rgb(239, 247, 101);
+}
+
+.contact {
+  width: 80%;
+  margin: 120px auto;
+  border-radius: 25px;
+  padding: 10px 10px 20px;
+  background-color: #fff;
+}
+.contact h3 {
+  padding: 10px 20px;
+  width: max-content;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ff47f9;
+}
+.contact ul {
+  border: 1px solid #bababa;
+  padding: 20px 40px;
+  border-radius: 5px;
+  width: max-content;
+  margin: 40px auto 0;
+}
+.contact ul li {
+  margin-block: 10px;
+  background-color: rgb(248, 120, 245);
+  padding: 10px;
+  font-size: 20px;
+}
+.contact ul li:nth-child(2n) {
+  background-color: #6bf8e3;
+}
+
+
+.grocery {
+  width: 80%;
+  margin: 125px auto 10px;
+  padding: 10px 50px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+}
+.grocery h1 {
+  text-align: center;
+  width: max-content;
+}
+.grocery ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+.grocery ul {
+  cursor: pointer;
+}
+
+
+.error {
+  height: 100vh;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #fff;
+}
+.error h1,
+.error h2,
+.error h3 {
+  margin-block: 20px;
+}
+
+
+.restaurantMenu {
+  color: #fff;
+  margin: 125px auto 0;
+  width: 80%;
+  max-width: 800px;
+}
+.restaurantMenu .restaurantHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dotted #cdcdcd;
+  padding: 10px 0;
+}
+.restaurantMenu .restaurantHeader .restaurantAdress h3{
+  margin-block: 10px;
+}
+.restaurantMenu .restaurantHeader .restaurantAdress p{
+  margin-block: 5px;
+  font-size: 12px;
+  color: #cecece;
+}
+
+.restaurantMenu .restaurantHeader .ratingBox{
+  padding: 5px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+.restaurantMenu .restaurantHeader .ratingBox .rating {
+  padding: 5px 0;
+  border-bottom: 1px solid #bdbdbd;
+  color: #ecba3d;
+  font-size: 14px;
+}
+.restaurantMenu .restaurantHeader .ratingBox .totalRating {
+  padding: 5px 0;
+  color: #cfcece;
+  font-size: 10px;
+}
+
+
+.restaurantMenu .priceBox {
+  padding: 20px 10px;
+  margin: 5px 0;
+}
+.restaurantMenu .priceBox p{
+  font-size: 14px;
+  font-weight: 600;
+}
+.restaurantMenu .priceBox p span{
+  border: 0.5px solid #eeeeee;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin: 0 10px 0 30px;
+}
+.restaurantMenu .offerBoxContainer {
+  padding: 10px 0;
+  margin-bottom: 20px;
+  display: flex;
+  overflow-x: hidden;
+}
+.restaurantMenu .offerBoxContainer .offerBox {
+  width: 500px;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #dfdfdf;
+  border-radius:5px;
+}
+.restaurantMenu .offerBoxContainer .offerBox p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #dadada;
+}
+
+.restaurantMenu .menuCardsContainer {
+  margin: 10px 0;
+  width: 100%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-block: 10px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #d5d5d5;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox{
+  margin-left: 10px;
+  width: 75%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox h4{
+ margin: 5px 0;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox .menuPrice{
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuTitleBox .menuDescription{
+  font-size: 14px;
+  color: #d6d6d6;
+}
+
+.restaurantMenu .menuCardsContainer .menuCardBox .menuImgBox{
+  margin-left: 10px;
+  width: 20%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuImgBox img{
+  border-radius: 10px;
+  width: 100%;
+}
+.restaurantMenu .menuCardsContainer .menuCardBox .menuImgBox p{
+  font-size: 11px;
+  text-align: center;
+  color: #fdfdfd;
+}
+*/
