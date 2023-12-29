@@ -1,4 +1,4 @@
-import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 // import restaurantsList from "../utils/mockData";
 import { useState, useEffect } from "react";
@@ -18,13 +18,17 @@ const Body = () => {
       );
       const resListDataJson = await resListData.json();
       // console.log(resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setResList(
-        resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
+      const listData = resListDataJson?.data?.cards.filter(
+        (restList) =>
+          restList?.card?.card?.gridElements?.infoWithStyle?.restaurants
       );
+      // console.log(listData);
+      setResList([
+        ...listData[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+        ...listData[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+      ]);
       setFilteredList(
-        resListDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
+        listData[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
       );
     } catch (error) {
       console.log(error);
@@ -77,7 +81,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="border mt-4 p-3 rounded-md mx-[5%]">
+      <div className="border mt-4 p-3 rounded-md mx-[5%] xl:mx-[9%]">
         <button
           className="bg-slate-500 px-3 py-2 rounded-md hover:opacity-90"
           onClick={(event) => {
@@ -99,10 +103,10 @@ const Body = () => {
           Top Rated Reastaurants
         </button>
       </div>
-      <div className="mx-[5%] mt-3 text-xl">
+      <div className="mx-[5%] xl:mx-[9%] mt-3 text-xl">
         <h1>Delivery Restaurants in Koramangala</h1>
       </div>
-      <div className="flex gap-y-5 mt-5 flex-wrap justify-around mx-[5%]">
+      <div className="flex gap-y-5 mt-5 flex-wrap justify-around mx-[5%] xl:mx-[9%]">
         {filteredList.map((data) => {
           return (
             <Link
