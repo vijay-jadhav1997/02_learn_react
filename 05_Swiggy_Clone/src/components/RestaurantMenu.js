@@ -10,7 +10,6 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi2";
 
 const RestaurantMenu = () => {
   const [vegMenuOnly, setVegMenuOnly] = useState(false);
-  // const [showAccordion, setShowAccordion] = useState(0);
 
   const { resId } = useParams();
   // console.log(resId);

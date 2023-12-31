@@ -1,15 +1,19 @@
 import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 // import restaurantsList from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useRestaurantList } from "../utils/customHooks";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   //* useState declare/create Local State Variable- Super Powerful variable:
   const [resList, setResList] = useState(null);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [userName1, setUserName1] = useState("");
+
+  const { loggedInUser, userName, setUserName } = useContext(UserContext);
 
   const fetchResList = async () => {
     try {
@@ -47,6 +51,22 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="mt-36 text-white">
+      <div className="w-max mx-auto my-2 px-5 py-2 bg-pink-400 rounded-md text-lg font-semibold">
+        <input
+          type="text"
+          className="my-2 py-1 px-3 indent-2 rounded-md outline-none text-blue-900"
+          value={userName1}
+          onChange={(e) => setUserName1(e.target.value)}
+          placeholder="Enter your name here..."
+        />
+        <button
+          className="border border-white py-1 px-3 mx-2 rounded-lg hover:text-pink-400 hover:bg-white active:shadow-lg active:shadow-rose-600"
+          onClick={() => setUserName(userName1)}
+        >
+          add name
+        </button>
+        <p> {loggedInUser}</p>
+      </div>
       <div className="bg-slate-400 py-1 mx-auto rounded-md w-max">
         <input
           className="outline-none bg-transparent indent-3 w-[50vw] placeholder:text-white"
@@ -60,7 +80,7 @@ const Body = () => {
         <button
           className="mx-2 bg-gray-200 px-4 py-2 text-gray-800 rounded-md hover:text-gray-100 hover:bg-transparent hover:border active:opacity-60 font-medium"
           onClick={() => {
-            console.log(searchText);
+            // console.log(searchText);
             let searchList;
 
             if (searchText.length !== 0) {

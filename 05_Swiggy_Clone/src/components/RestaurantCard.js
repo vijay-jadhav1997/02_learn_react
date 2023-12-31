@@ -2,6 +2,7 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { restaurantData } = props;
+
   const {
     cloudinaryImageId,
     name,
@@ -15,7 +16,7 @@ const RestaurantCard = (props) => {
 
   const cuisinesString = cuisines.join(", ");
   return (
-    <div className="flex-col w-[265px] hover:bg-blue-900 border text-white p-2 rounded-xl">
+    <div className="flex-col w-[275px] hover:bg-blue-900 border text-white p-2 rounded-xl">
       <div className="relative">
         <img
           className="w-[260px] h-[180px] rounded-lg"
@@ -33,7 +34,9 @@ const RestaurantCard = (props) => {
       </div>
 
       <div className="mt-3 pl-1">
-        <h3 className="text-lg">{name}</h3>
+        <h3 className="text-lg ">
+          {name.length > 30 ? name.slice(0, 29) + "..." : name}
+        </h3>
         <h5>
           {avgRating} Star .{" "}
           <span className="font-medium"> {sla.slaString}</span>

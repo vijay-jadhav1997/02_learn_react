@@ -1,5 +1,5 @@
 //
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
@@ -9,6 +9,7 @@ import Body from "./components/Body";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -16,11 +17,26 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState("deafult user");
+
+  // Authentication code:
+  useEffect(() => {
+    // API fetch code is here.
+    const responseData = {
+      name: "Jay Shree Ram",
+    };
+    setUserName(responseData.name);
+  }, []);
+
   return (
-    <div className="foodApp">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider
+      value={{ loggedInUser: userName, userName, setUserName }}
+    >
+      <div className="foodApp">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
