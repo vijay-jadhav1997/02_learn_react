@@ -7,6 +7,14 @@ function Login() {
 
   const { setUser } = useContext(UserContext);
 
+  function submitHandle() {
+    if (userName !== "") {
+      setUser({ userName, password });
+    } else {
+      alert("Please enter UserName....!");
+    }
+  }
+
   return (
     <div className="login_page flex flex-col items-center gap-10 w-[300px] h-[350px] p-5 mx-auto mt-10 border-4 border-blue-700 rounded-lg">
       <h2 className=" py-2 text-center text-2xl text-blue-950 font-bold">
@@ -32,7 +40,7 @@ function Login() {
         <button
           type="submit"
           className="py-2 px-3 border bg-cyan-500 text-white  rounded-full w-[100px]"
-          onClick={(e) => setUser({ userName, password })}
+          onClick={submitHandle}
         >
           LogIn
         </button>
