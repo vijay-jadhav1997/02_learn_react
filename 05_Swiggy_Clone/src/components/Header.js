@@ -33,6 +33,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <Link className="px-2 py-1 hover:border rounded-md" to="/cart">
+                Cart
+              </Link>
+            </li>
+            <li>
               <Link className="px-2 py-1 hover:border rounded-md" to="/grocery">
                 Grocery Store
               </Link>
