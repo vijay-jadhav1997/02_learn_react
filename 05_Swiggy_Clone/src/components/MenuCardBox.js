@@ -46,13 +46,18 @@ const MenuCardBox = ({ menuData }) => {
           {description}
         </p>
       </div>
-      <div className="menuImgBox w-max">
+      <div className="menuImgBox w-max relative">
         <img
           className="h-24 rounded-md"
           src={MENU_IMG_URL + imageId}
           alt={name.substring(0, 10) + "... pic"}
         />
-        <p className="text-center text-xs text-slate-400">Customisable</p>
+        <p
+          className="py-1 px-2 w-max rounded-md absolute text-white bg-black top-1 left-1/2 -translate-x-1/2"
+          onClick={() => {}}
+        >
+          Add +
+        </p>
       </div>
     </div>
   );
