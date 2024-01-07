@@ -48,7 +48,7 @@ const MenuCardBox = ({ menuData }) => {
       </div>
       <div className="menuImgBox w-max relative">
         <img
-          className="h-24 rounded-md"
+          className="h-24 w-32 rounded-md"
           src={MENU_IMG_URL + imageId}
           alt={name.substring(0, 10) + "... pic"}
         />

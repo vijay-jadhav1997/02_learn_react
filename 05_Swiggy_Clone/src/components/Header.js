@@ -2,12 +2,15 @@ import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   //* useState declare Local State Variable- which is Super Powerful variable:
   const [btnName, setBtnName] = useState("Login");
 
   const isOnline = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="bg-pink-400 z-50 fixed top-3 rounded left-[5%] right-[5%] lg:left-[10%] lg:right-[10%]">
@@ -34,7 +37,7 @@ const Header = () => {
             </li>
             <li>
               <Link className="px-2 py-1 hover:border rounded-md" to="/cart">
-                Cart
+                Cart- ({cartItems.length} items)
               </Link>
             </li>
             <li>
