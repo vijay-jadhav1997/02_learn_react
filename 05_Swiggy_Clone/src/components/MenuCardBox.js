@@ -2,8 +2,12 @@ import { MENU_IMG_URL } from "../utils/constants";
 import { BiSolidStar } from "react-icons/bi";
 import { PiSquareLogoFill } from "react-icons/pi";
 import { BiCaretUpSquare } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { addItem } from "../appStore/slices/cartSlice";
 
 const MenuCardBox = ({ menuData }) => {
+  const dispatch = useDispatch();
+
   const {
     name,
     description,
@@ -14,6 +18,11 @@ const MenuCardBox = ({ menuData }) => {
     offerTags,
     ribbon,
   } = menuData?.card?.info;
+
+  function handleAddMenu(menuData) {
+    dispatch(addItem(menuData));
+  }
+
   // console.log(offerTags);
   return (
     <div className="menuCardBox py-5 flex justify-between items-center">
@@ -52,12 +61,12 @@ const MenuCardBox = ({ menuData }) => {
           src={MENU_IMG_URL + imageId}
           alt={name.substring(0, 10) + "... pic"}
         />
-        <p
+        <button
           className="py-1 px-2 w-max rounded-md absolute text-white bg-black top-1 left-1/2 -translate-x-1/2"
-          onClick={() => {}}
+          onClick={() => handleAddMenu(menuData)}
         >
           Add +
-        </p>
+        </button>
       </div>
     </div>
   );

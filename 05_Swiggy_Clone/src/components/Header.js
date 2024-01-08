@@ -11,6 +11,7 @@ const Header = () => {
   const isOnline = useOnlineStatus();
 
   const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="bg-pink-400 z-50 fixed top-3 rounded left-[5%] right-[5%] lg:left-[10%] lg:right-[10%]">
@@ -37,7 +38,7 @@ const Header = () => {
             </li>
             <li>
               <Link className="px-2 py-1 hover:border rounded-md" to="/cart">
-                Cart- ({cartItems.length} items)
+                Cart- ({cartItems.length})
               </Link>
             </li>
             <li>
