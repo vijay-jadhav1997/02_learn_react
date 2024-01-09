@@ -23,7 +23,7 @@ export default function Cart() {
   }
 
   return cartItems.length === 0 ? (
-    <div className="w-[90%] h-screen mx-auto flex flex-col gap-y-5 justify-center items-center text-white">
+    <div className="w-[90%] h-screen mx-auto flex flex-col gap-y-5 justify-center items-center text-white hover:bg-slate-300">
       <h1 className="text-white font-bold text-4xl mb-5">
         Hey, Your cart is empty!
       </h1>
@@ -51,7 +51,7 @@ export default function Cart() {
         return <CartItemBox key={index} menuData={item} />;
       })}
       <div className="mt-2 pt-5 border-t-2 border-t-slate-400 w-full">
-        <p> Total Price - ₹ {totalPrice / 100} only. </p>
+        <p className="text-xl"> Total Price - ₹ {totalPrice / 100} only. </p>
       </div>
     </div>
   );
