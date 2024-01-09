@@ -43,7 +43,7 @@ const MenuCardBox = ({ menuData }) => {
         </h4>
         <h4 className="font-medium">{name}</h4>
         <p className="menuPrice font-light">
-          ₹{price / 100 || defaultPrice / 100}{" "}
+          ₹ {price / 100 || defaultPrice / 100}{" "}
           {offerTags && offerTags[0]?.title && (
             <span className="text-xs px-1 bg-[#FAE8E3] ml-2 border-l-2 border-l-orange-700 text-orange-700">
               {" "}
