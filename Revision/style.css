@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* border: none; */
+  box-sizing: border-box;
+  font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+#root .jay {
+  /* font-size: 2rem; */
+  font-weight: 800;
+  font-family: fantasy;
+  text-align: center;
+  border: 3px dashed rgb(216, 6, 170);
+  border-radius: 20px;
+  padding: 20px 20%;
+  margin: 20px auto;
+  width: max-content;
+}

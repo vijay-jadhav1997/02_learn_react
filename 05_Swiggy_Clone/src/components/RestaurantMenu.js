@@ -18,7 +18,8 @@ const RestaurantMenu = () => {
   // console.log(menuData);
 
   if (menuData === null) return <Shimmer />;
-
+  // console.log(menuData?.data?.cards);
+  console.log(menuData?.data?.cards.filter((data) => data?.card?.card?.info));
   const {
     name,
     areaName,
@@ -28,25 +29,29 @@ const RestaurantMenu = () => {
     totalRatingsString,
     availability,
     veg,
-  } = menuData?.data?.cards[0]?.card?.card?.info;
-  const { offers } =
-    menuData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
+  } = menuData?.data?.cards.filter((data) => data?.card?.card?.info)[0]?.card
+    ?.card?.info;
+  const { offers } = menuData?.data?.cards.filter(
+    (data) => data?.card?.card?.gridElements?.infoWithStyle
+  )[0]?.card?.card?.gridElements?.infoWithStyle;
 
-  // console.log(menuData?.data?.cards);
+  let pureVegData = menuData?.data?.cards.filter(
+    (data) => data?.groupedCard?.cardGroupMap?.REGULAR?.cards
+  );
+  console.log(pureVegData);
 
   const { isPureVeg } =
-    menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card
-      ?.card;
+    pureVegData[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (data) => data?.card?.card
+    )[0]?.card?.card;
 
   const menuCategories =
-    menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (card) => {
-        return (
-          card?.card?.card?.["@type"] ===
-          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-        );
-      }
-    );
+    pureVegData[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((card) => {
+      return (
+        card?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
+    });
   // console.log(menuCategories);
 
   const OfferBox = ({ offerData }) => {
