@@ -1,9 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 
 function Accordion() {
   const [showAccordion, setShowAccordion] = useState(false);
+  const [productList, setProductList] = useState([]);
+
+  // async function fetchData() {
+  //   try {
+  //     response = await fetch("https://dummyjson.com/products");
+  //     productData = await response.json();
+  //     setProductList(productData?.products);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  const fetchData = async () => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((response) => {
+        setProductList(response?.products);
+      })
+      .catch((error) => {
+        console.log(error);
+        // document.write(error);
+        // confirm(error);
+      });
+  };
+
+  useEffect(() => {
+    // fetchData();
+  }, []);
 
   return (
     <div className="accordion_container">
