@@ -101,6 +101,6 @@ root.render(element);
 // const root1 = document.querySelector("#root");
 // root1.appendChild(divElem);
 
-// console.log(element);
+console.log(element);
 
 // console.dir(element);
